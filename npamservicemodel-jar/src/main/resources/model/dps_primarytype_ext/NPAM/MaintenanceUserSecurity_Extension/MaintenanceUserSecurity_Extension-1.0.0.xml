@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pte:PrimaryTypeExtensionDefinition
+	xmlns:oss_common="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:pt="urn:com:ericsson:schema:xml:oss:dps_primarytype"
+	xmlns:pte="urn:com:ericsson:schema:xml:oss:dps_primarytype_ext"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oss_common:ns="NPAM"
+	oss_common:name="MaintenanceUserSecurity_Extension" oss_common:version="1.0.0">
+	<oss_common:modelCreationInfo author="ediesob"
+		creationDate="Fri Jan 09 14:41:38 GMT 2022">
+		<oss_common:designedModel componentId="npam"/>
+	</oss_common:modelCreationInfo>
+	
+	<oss_common:desc>model extension for MaintenanceUserSecurity</oss_common:desc>
+	
+	<oss_common:extendedModelElement urn="//RcsUser/MaintenanceUserSecurity/*" />
+
+   <pte:primaryTypeExtension>
+         <pte:changeEventHandling onCreatePo="VALUES" onDeletePo="VALUES" onModifyAttr="NAMES VALUES PRIOR_VALUES" channelUrn="//global/NpamDpsNotificationEvent"/>
+   </pte:primaryTypeExtension>
+
+	
+</pte:PrimaryTypeExtensionDefinition>

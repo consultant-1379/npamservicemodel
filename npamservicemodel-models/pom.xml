@@ -1,0 +1,49 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.ericsson.oss.services.security.model.npam</groupId>
+		<artifactId>npamservicemodel</artifactId>
+		<version>1.5.2-SNAPSHOT</version>
+	</parent>
+	<artifactId>npamservicemodel-models</artifactId>
+	<name>[${project.parent.artifactId}] models module</name>
+	<description>This module will process models and generate the JAR of models.</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.ericsson.oss.services.security.model.npam</groupId>
+			<artifactId>npamservicemodel-jar</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<id>add-model-build-dir-as-resources</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>add-resource</goal>
+						</goals>
+						<configuration>
+							<resources>
+								<resource>
+									<directory>../${project.parent.artifactId}-jar/target/model-build</directory>
+									<excludes>
+										<exclude>**/*.gitignore</exclude>
+									</excludes>
+									<targetPath>modeling</targetPath>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

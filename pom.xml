@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.ericsson.nms</groupId>
+		<artifactId>integration</artifactId>
+		<version>15.2.0.40</version>
+	</parent>
+
+	<groupId>com.ericsson.oss.services.security.model.npam</groupId>
+	<artifactId>npamservicemodel</artifactId>
+	<version>1.5.2-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>[${project.artifactId}] Model Project</name>
+	<description>This is a template service model project</description>
+
+	<properties>
+		<!-- Temporary waiting fix in Release job -->
+<!--		<ericsson.scm.url>scm:git:[fetch=]ssh://gerritmirror-ha.lmera.ericsson.se:29418/OSS/ENM-Parent/SQ-Gate/${project.groupId}[push=]ssh://gerrit.ericsson.se:29418/OSS/ENM-Parent/SQ-Gate/${project.groupId}</ericsson.scm.url>-->
+		<ericsson.scm.url>scm:git:[fetch=]ssh://gerritmirror-ha.lmera.ericsson.se:29418/OSS/ENM-Parent/SQ-Gate/com.ericsson.oss.services.security.model.npam[push=]ssh://gerrit.ericsson.se:29418/OSS/ENM-Parent/SQ-Gate/com.ericsson.oss.services.security.model.npam</ericsson.scm.url>
+
+		<version.modeling.bom>22.0.8</version.modeling.bom>
+
+		<!-- Modelling/BOM contains following plugin versions: it is mandatory to repeat versions here to use proper versions explained here https://confluence-oss.seli.wh.rnd.internal.ericsson.com/pages/viewpage.action?spaceKey=MS&title=Modeling-BOM+Version+22.0 inside last note -->
+		<version.modeling-annotation-processor-jar>4.0.3</version.modeling-annotation-processor-jar>
+		<version.model-processing-jar>2.0.3</version.model-processing-jar>
+		<version.model-deployment-jar>10.3.3</version.model-deployment-jar>
+		<!-- Only for intergration test env-->
+        <!--		<version.model-service-jar>13.3.3</version.model-service-jar>-->
+
+		<!-- Mediation -->
+		<version.mediation.sdk>2.0.2</version.mediation.sdk>
+		<version.sdk.event.model>1.0.28</version.sdk.event.model>
+
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.ericsson.oss.itpf.modeling</groupId>
+				<artifactId>Modeling-BOM</artifactId>
+				<version>${version.modeling.bom}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>com.ericsson.nms.mediation</groupId>
+				<artifactId>mediation-sdk-bom</artifactId>
+				<version>${version.mediation.sdk}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<modules>
+		<module>npamservicemodel-jar</module>
+		<module>npamservicemodel-models</module>
+		<module>ERICnpamservicemodel_CXP9043012</module>
+	</modules>
+</project>
